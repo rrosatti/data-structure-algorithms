@@ -74,8 +74,7 @@ void HeapSort::descida(int index, int bottom) {
 	int filho1 = 2*index + 1;
 	int filho2 = 2*index + 2;
 	int son = (items[filho1] > items[filho2]) ? filho1 : filho2;
-	//std::cout << "pos: " << pos << " son: " << son << std::endl;
-	//std::cout << "items[pos]: " << items[pos] << " items[son]: " << items[son] << std::endl;
+
 	if(son > bottom) {
 		return;
 	} else {
@@ -91,27 +90,12 @@ void HeapSort::descida(int index, int bottom) {
 	}
 }
 
-/**
-void HeapSort::sort() {
-	int bottom = length - 1;
-	for (int i = 0; i < length; i++) {
-		ItemType aux = items[0];
-		ItemType aux2 = items[bottom];
-		items[0] = aux2;
-		items[bottom] = aux;
-		bottom--;
-		this->printHeapSort();
-		descida(0, bottom);
-		if (bottom == 1 && items[0] < items[1])
-			break;
-	}
-}
-*/
+
 /**
 	Explicando o laço while:
 	Algumas vezes quando bottom = 1, o valor items[0] é maior que items[bottom],
 	ou seja, o processo de troca de posição e descida vai atrapalhar a ordenação.
-	Portanto, colocamos essa verificação para que isso não ocorra. 
+	Portanto, colocamos essa verificação para que isso não ocorra.
 */
 void HeapSort::sort() {
 	int bottom = length - 1;
@@ -121,14 +105,16 @@ void HeapSort::sort() {
 		items[0] = aux2;
 		items[bottom] = aux;
 		bottom--;
-		this->printHeapSort();
+		//this->printHeapSort();
 		descida(0, bottom);
 	} while (bottom > 0 && !(bottom == 1 && items[0] < items[1]));
 }
 
+/**
 void HeapSort::printHeapSort() {
 	std::cout << std::endl;
 	for (int i = 0; i < length; i++) {
 		std::cout << items[i];
 	}
 }
+*/

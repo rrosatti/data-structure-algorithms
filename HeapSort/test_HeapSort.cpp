@@ -10,7 +10,7 @@ int main() {
   int count = 0;
 
   cout << "Enter several numbers again; press return." << endl;
-  cin.get(character); 
+  cin.get(character);
   while (character != '\n')
     {
       characters[count] = character;
@@ -19,13 +19,13 @@ int main() {
     }
 
   HeapSort heap(100, characters, count);
-  heap.printHeapSort();
+//  heap.printHeapSort();
   heap.sort();
   while (!heap.isEmpty())
     {
       character = heap.dequeue();
       cout << character;
     }
-  
+
   cout << endl;
 }
